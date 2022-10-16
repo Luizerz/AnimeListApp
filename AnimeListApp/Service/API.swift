@@ -22,7 +22,7 @@ class API {
     static func getAnimeModel(url: URL) async -> AnimeModel? {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
-        print(url)
+//        print(url)
         do {
             let (data, _) = try await URLSession.shared.data(for: urlRequest)
             let animeDecoded = try JSONDecoder().decode(AnimeModel.self, from: data)
@@ -75,7 +75,6 @@ class API {
             }
             do {
                 let animes = try JSONDecoder().decode(AnimeModel.self, from: responseData)
-                //                print(animes)
                 completion(animes)
             } catch let error {
                 print(error)

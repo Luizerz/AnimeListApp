@@ -20,6 +20,10 @@ class AnimeListViewModel {
         self.delegate = delegate
     }
 
+    func animeSeleted(indexPath: IndexPath){
+        print(animesData?[indexPath.row].title ?? "error\(#function)")
+    }
+
     func fetchAnimes() async {
         let anime = await API.getAnimeModel(url: Router.getTopAnimes)
         animesData = anime?.data

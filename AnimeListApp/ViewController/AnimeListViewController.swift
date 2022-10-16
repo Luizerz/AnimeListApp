@@ -43,11 +43,11 @@ extension AnimeListViewController: UITableViewDelegate, UITableViewDataSource {
         let anime = animeListViewModel.animesData![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnimeListViewCell
         cell.configure(with: anime)
-        
         return cell
     }
-    @objc func testando() {
-        print(#function)
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        animeListViewModel.animeSeleted(indexPath: indexPath)
     }
 }
 

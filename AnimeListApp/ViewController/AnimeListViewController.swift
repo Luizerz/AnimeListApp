@@ -9,7 +9,7 @@ import UIKit
 
 class AnimeListViewController: UIViewController {
 
-    private lazy var animeListViewModel = AnimeListViewModel(delegate: self)
+    var animeListViewModel: AnimeListViewModel
 
     private lazy var tableView: UITableView = {
         let table = UITableView()
@@ -20,15 +20,26 @@ class AnimeListViewController: UIViewController {
         return table
     }()
 
+    internal init(animeListViewModel: AnimeListViewModel) {
+        self.animeListViewModel = animeListViewModel
+        super.init(nibName: nil, bundle: nil)
+        animeListViewModel.delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+
     override func loadView() {
         self.view = tableView
+        self.view.layer.cornerRadius = 25
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         Task {
             await animeListViewModel.fetchAnimes()
-//            tableView.reloadData() // pode melhorar usand binding
         }
     }
 }

@@ -9,6 +9,5 @@ import Foundation
 
 protocol ViewModelDelegate: AnyObject {
 
-    func getTitleArray(title: String)
-    func getImageUrl(url: URL)
+    func printando()
 }

@@ -16,10 +16,6 @@ class AnimeListViewModel {
         }
     }
 
-    init(delegate: AnimeListDelegate) {
-        self.delegate = delegate
-    }
-
     func animeSeleted(indexPath: IndexPath){
         print(animesData?[indexPath.row].title ?? "error\(#function)")
     }
@@ -31,6 +27,10 @@ class AnimeListViewModel {
 
     public var getCountData: Int {
         self.animesData?.count ?? 0
+    }
+
+    func resetAnime() {
+        animesData = []
     }
 
 }

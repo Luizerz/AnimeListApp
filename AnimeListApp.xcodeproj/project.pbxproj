@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F33D03C28F983E3000F17A1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D03B28F983E3000F17A1 /* API.swift */; };
+		4F33D03F28F98404000F17A1 /* AnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D03E28F98404000F17A1 /* AnimeModel.swift */; };
+		4F33D04228F98903000F17A1 /* ViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D04128F98903000F17A1 /* ViewModelDelegate.swift */; };
+		4F33D04528F98D7F000F17A1 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4F33D04428F98D7F000F17A1 /* SDWebImage */; };
+		4F33D04728F9928E000F17A1 /* AnimeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D04628F9928E000F17A1 /* AnimeListViewController.swift */; };
+		4F33D04928F99B13000F17A1 /* AnimeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D04828F99B13000F17A1 /* AnimeListViewModel.swift */; };
+		4F33D04B28F9A01D000F17A1 /* AnimeListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D04A28F9A01D000F17A1 /* AnimeListDelegate.swift */; };
+		4FA8DC8B28F5BA8F00516E38 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA8DC8A28F5BA8F00516E38 /* ViewModel.swift */; };
+		4FAD9D9428F9CF01008284B0 /* AnimeListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD9D9228F9CF01008284B0 /* AnimeListViewCell.swift */; };
+		4FAD9D9528F9CF01008284B0 /* AnimeListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD9D9328F9CF01008284B0 /* AnimeListViewCell.xib */; };
 		4FD71CB928F5AA7A00A3350D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD71CB828F5AA7A00A3350D /* AppDelegate.swift */; };
 		4FD71CBB28F5AA7A00A3350D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD71CBA28F5AA7A00A3350D /* SceneDelegate.swift */; };
 		4FD71CBD28F5AA7A00A3350D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD71CBC28F5AA7A00A3350D /* ViewController.swift */; };
@@ -37,6 +47,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F33D03B28F983E3000F17A1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		4F33D03E28F98404000F17A1 /* AnimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeModel.swift; sourceTree = "<group>"; };
+		4F33D04128F98903000F17A1 /* ViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelDelegate.swift; sourceTree = "<group>"; };
+		4F33D04628F9928E000F17A1 /* AnimeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewController.swift; sourceTree = "<group>"; };
+		4F33D04828F99B13000F17A1 /* AnimeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewModel.swift; sourceTree = "<group>"; };
+		4F33D04A28F9A01D000F17A1 /* AnimeListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListDelegate.swift; sourceTree = "<group>"; };
+		4FA8DC8A28F5BA8F00516E38 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		4FAD9D9228F9CF01008284B0 /* AnimeListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewCell.swift; sourceTree = "<group>"; };
+		4FAD9D9328F9CF01008284B0 /* AnimeListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeListViewCell.xib; sourceTree = "<group>"; };
 		4FD71CB528F5AA7A00A3350D /* AnimeListApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnimeListApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD71CB828F5AA7A00A3350D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FD71CBA28F5AA7A00A3350D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F33D04528F98D7F000F17A1 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +98,68 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F33D03D28F983FB000F17A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4F33D03E28F98404000F17A1 /* AnimeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4F33D04028F988FB000F17A1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				4F33D04128F98903000F17A1 /* ViewModelDelegate.swift */,
+				4F33D04A28F9A01D000F17A1 /* AnimeListDelegate.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		4FA8DC8628F5BA1700516E38 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4F33D04828F99B13000F17A1 /* AnimeListViewModel.swift */,
+				4FA8DC8A28F5BA8F00516E38 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4FA8DC8728F5BA1C00516E38 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4F33D03B28F983E3000F17A1 /* API.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4FA8DC8828F5BA2300516E38 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4FD71CBC28F5AA7A00A3350D /* ViewController.swift */,
+				4F33D04628F9928E000F17A1 /* AnimeListViewController.swift */,
+				4FAD9D9128F9CEE9008284B0 /* AnimeListComponent */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4FA8DC8928F5BA3100516E38 /* AppSceneDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				4FD71CB828F5AA7A00A3350D /* AppDelegate.swift */,
+				4FD71CBA28F5AA7A00A3350D /* SceneDelegate.swift */,
+			);
+			path = AppSceneDelegate;
+			sourceTree = "<group>";
+		};
+		4FAD9D9128F9CEE9008284B0 /* AnimeListComponent */ = {
+			isa = PBXGroup;
+			children = (
+				4FAD9D9228F9CF01008284B0 /* AnimeListViewCell.swift */,
+				4FAD9D9328F9CF01008284B0 /* AnimeListViewCell.xib */,
+			);
+			path = AnimeListComponent;
+			sourceTree = "<group>";
+		};
 		4FD71CAC28F5AA7A00A3350D = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +183,12 @@
 		4FD71CB728F5AA7A00A3350D /* AnimeListApp */ = {
 			isa = PBXGroup;
 			children = (
-				4FD71CB828F5AA7A00A3350D /* AppDelegate.swift */,
-				4FD71CBA28F5AA7A00A3350D /* SceneDelegate.swift */,
-				4FD71CBC28F5AA7A00A3350D /* ViewController.swift */,
+				4F33D04028F988FB000F17A1 /* Protocol */,
+				4F33D03D28F983FB000F17A1 /* Model */,
+				4FA8DC8928F5BA3100516E38 /* AppSceneDelegate */,
+				4FA8DC8828F5BA2300516E38 /* ViewController */,
+				4FA8DC8728F5BA1C00516E38 /* Service */,
+				4FA8DC8628F5BA1700516E38 /* ViewModel */,
 				4FD71CBE28F5AA7A00A3350D /* Main.storyboard */,
 				4FD71CC428F5AA7A00A3350D /* Assets.xcassets */,
 				4FD71CC628F5AA7A00A3350D /* LaunchScreen.storyboard */,
@@ -146,6 +231,9 @@
 			dependencies = (
 			);
 			name = AnimeListApp;
+			packageProductDependencies = (
+				4F33D04428F98D7F000F17A1 /* SDWebImage */,
+			);
 			productName = AnimeListApp;
 			productReference = 4FD71CB528F5AA7A00A3350D /* AnimeListApp.app */;
 			productType = "com.apple.product-type.application";
@@ -218,6 +306,9 @@
 				Base,
 			);
 			mainGroup = 4FD71CAC28F5AA7A00A3350D;
+			packageReferences = (
+				4F33D04328F98D7F000F17A1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 4FD71CB628F5AA7A00A3350D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -237,6 +328,7 @@
 				4FD71CC828F5AA7A00A3350D /* LaunchScreen.storyboard in Resources */,
 				4FD71CC528F5AA7A00A3350D /* Assets.xcassets in Resources */,
 				4FD71CC028F5AA7A00A3350D /* Main.storyboard in Resources */,
+				4FAD9D9528F9CF01008284B0 /* AnimeListViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,9 +353,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FA8DC8B28F5BA8F00516E38 /* ViewModel.swift in Sources */,
+				4F33D04B28F9A01D000F17A1 /* AnimeListDelegate.swift in Sources */,
 				4FD71CC328F5AA7A00A3350D /* AnimeListApp.xcdatamodeld in Sources */,
+				4FAD9D9428F9CF01008284B0 /* AnimeListViewCell.swift in Sources */,
+				4F33D03F28F98404000F17A1 /* AnimeModel.swift in Sources */,
+				4F33D04928F99B13000F17A1 /* AnimeListViewModel.swift in Sources */,
 				4FD71CBD28F5AA7A00A3350D /* ViewController.swift in Sources */,
 				4FD71CB928F5AA7A00A3350D /* AppDelegate.swift in Sources */,
+				4F33D04228F98903000F17A1 /* ViewModelDelegate.swift in Sources */,
+				4F33D03C28F983E3000F17A1 /* API.swift in Sources */,
+				4F33D04728F9928E000F17A1 /* AnimeListViewController.swift in Sources */,
 				4FD71CBB28F5AA7A00A3350D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +706,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4F33D04328F98D7F000F17A1 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4F33D04428F98D7F000F17A1 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4F33D04328F98D7F000F17A1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		4FD71CC128F5AA7A00A3350D /* AnimeListApp.xcdatamodeld */ = {

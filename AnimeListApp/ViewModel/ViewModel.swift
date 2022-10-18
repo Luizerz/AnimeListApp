@@ -31,6 +31,7 @@ class ViewModel {
 
     func setAnimeSelected(at indexPath: IndexPath) {
         print(animes[indexPath.row].title ?? "")
+        
         // enviar evento pra controller fazer transicao de tela via delegate
     }
 

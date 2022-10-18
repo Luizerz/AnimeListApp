@@ -9,18 +9,14 @@ import UIKit
 
 class DatailViewController: UIViewController {
 
-    private var animeListViewModel: AnimeListViewModel?
+    @IBOutlet weak var animeImage: UIImageView!
+    @IBOutlet weak var detailText: UITextView!
+    @IBOutlet weak var tableView: UITableView!
 
-//     init(animeListViewModel: AnimeListViewModel? = nil) {
-//        self.animeListViewModel = animeListViewModel
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    private var anime: AnimeData?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.title = anime?.title
     }
 }

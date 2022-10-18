@@ -14,6 +14,7 @@
 		4F33D04728F9928E000F17A1 /* AnimeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D04628F9928E000F17A1 /* AnimeListViewController.swift */; };
 		4F33D04928F99B13000F17A1 /* AnimeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D04828F99B13000F17A1 /* AnimeListViewModel.swift */; };
 		4F33D04B28F9A01D000F17A1 /* AnimeListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D04A28F9A01D000F17A1 /* AnimeListDelegate.swift */; };
+		4F6AA6AF28FD894C00D93DB2 /* DatailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6AA6AE28FD894C00D93DB2 /* DatailViewController.swift */; };
 		4FA8DC8B28F5BA8F00516E38 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA8DC8A28F5BA8F00516E38 /* ViewModel.swift */; };
 		4FAD9D9428F9CF01008284B0 /* AnimeListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAD9D9228F9CF01008284B0 /* AnimeListViewCell.swift */; };
 		4FAD9D9528F9CF01008284B0 /* AnimeListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FAD9D9328F9CF01008284B0 /* AnimeListViewCell.xib */; };
@@ -53,6 +54,7 @@
 		4F33D04628F9928E000F17A1 /* AnimeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewController.swift; sourceTree = "<group>"; };
 		4F33D04828F99B13000F17A1 /* AnimeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewModel.swift; sourceTree = "<group>"; };
 		4F33D04A28F9A01D000F17A1 /* AnimeListDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListDelegate.swift; sourceTree = "<group>"; };
+		4F6AA6AE28FD894C00D93DB2 /* DatailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatailViewController.swift; sourceTree = "<group>"; };
 		4FA8DC8A28F5BA8F00516E38 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		4FAD9D9228F9CF01008284B0 /* AnimeListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListViewCell.swift; sourceTree = "<group>"; };
 		4FAD9D9328F9CF01008284B0 /* AnimeListViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimeListViewCell.xib; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		4FA8DC8828F5BA2300516E38 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4F6AA6AE28FD894C00D93DB2 /* DatailViewController.swift */,
 				4FD71CBC28F5AA7A00A3350D /* ViewController.swift */,
 				4F33D04628F9928E000F17A1 /* AnimeListViewController.swift */,
 				4FAD9D9128F9CEE9008284B0 /* AnimeListComponent */,
@@ -363,6 +366,7 @@
 				4FD71CB928F5AA7A00A3350D /* AppDelegate.swift in Sources */,
 				4F33D04228F98903000F17A1 /* ViewModelDelegate.swift in Sources */,
 				4F33D03C28F983E3000F17A1 /* API.swift in Sources */,
+				4F6AA6AF28FD894C00D93DB2 /* DatailViewController.swift in Sources */,
 				4F33D04728F9928E000F17A1 /* AnimeListViewController.swift in Sources */,
 				4FD71CBB28F5AA7A00A3350D /* SceneDelegate.swift in Sources */,
 			);

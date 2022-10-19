@@ -33,10 +33,8 @@ class ViewController: UIViewController {
         addChild(animeListViewController)
         view.addSubview(animeListViewController.view)
         setContraints()
-
         // Binding com delegate da ViewModel e da View (ViewController é View no MVVM)
         viewModel.viewModelDelegate = self
-
         viewModel.selectedSegmentedIndex = 0
 
     }

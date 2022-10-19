@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DetailViewController: UIViewController {
 
@@ -19,13 +20,18 @@ class DetailViewController: UIViewController {
 
     private var anime: AnimeData?
 
+    @IBAction func saveSwitchAction(_ sender: Any) {
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
         navigationItem.title = detailViewModel?.model.title
         animeImage = detailViewModel?.configureImageView(imageView: animeImage)
         detailText = detailViewModel?.configureTextView(textView: detailText)
         malRating = detailViewModel?.configureRating(labelView: malRating)
         malID = detailViewModel?.configureMalID(labelView: malID)
+
     }
 }
+
+

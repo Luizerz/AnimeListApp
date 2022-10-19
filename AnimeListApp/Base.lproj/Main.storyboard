@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Animes-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimeListApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bkr-bA-NmL">
-                                <rect key="frame" x="118" y="187" width="179" height="32"/>
+                                <rect key="frame" x="118" y="165" width="179" height="32"/>
                                 <segments>
                                     <segment title="Geral"/>
                                     <segment title="Minha Lista"/>
@@ -30,24 +30,25 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="bkr-bA-NmL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="99" id="GzD-Aw-fMu"/>
+                            <constraint firstItem="bkr-bA-NmL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="GzD-Aw-fMu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bkr-bA-NmL" secondAttribute="trailing" constant="117" id="R98-Ht-kbd"/>
                             <constraint firstItem="bkr-bA-NmL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="118" id="yOl-WH-IYk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Qb2-AE-k0h"/>
+                    <navigationItem key="navigationItem" title="Animes" id="Qb2-AE-k0h"/>
                     <connections>
                         <outlet property="segmentedControl" destination="bkr-bA-NmL" id="Yad-95-02Q"/>
+                        <segue destination="bP7-JQ-Xro" kind="show" id="OJb-UU-ObL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="955.07246376811599" y="53.571428571428569"/>
+            <point key="canvasLocation" x="938" y="54"/>
         </scene>
-        <!--dokasod-->
+        <!--animeTitle-->
         <scene sceneID="IaR-AV-P4Q">
             <objects>
-                <viewController id="cSh-dy-w1P" customClass="DatailViewController" customModule="AnimeListApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" id="cSh-dy-w1P" customClass="DetailViewController" customModule="AnimeListApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Fr8-Cp-GsM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -55,13 +56,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vyS-Jr-w6d">
                                 <rect key="frame" x="20" y="266" width="146" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.91746991870000005" green="0.0" blue="0.06726133074" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Khf-P1-ymz">
-                                <rect key="frame" x="20" y="534" width="374" height="207"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.91746991870000005" green="0.0" blue="0.06726133074" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </tableView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sy6-4G-PEM">
                                 <rect key="frame" x="174" y="263" width="233" height="191"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -71,15 +66,47 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DpQ-sR-xiA">
+                                <rect key="frame" x="314" y="641" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Minha Lista" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBz-Go-Yix">
+                                <rect key="frame" x="53" y="646" width="87" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rating: 10.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujc-GZ-Fsi">
+                                <rect key="frame" x="286" y="487" width="102" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eML-Zp-sW2">
+                                <rect key="frame" x="27" y="516" width="361" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="labelColor"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mal_ID: 1234567" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MP2-pi-CMr">
+                                <rect key="frame" x="27" y="487" width="130" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YU9-DO-e2w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="dokasod" id="lqB-jZ-lpe"/>
+                    <navigationItem key="navigationItem" title="animeTitle" largeTitleDisplayMode="always" id="lqB-jZ-lpe"/>
                     <connections>
                         <outlet property="animeImage" destination="vyS-Jr-w6d" id="JVl-uo-4Og"/>
                         <outlet property="detailText" destination="Sy6-4G-PEM" id="bqD-Kn-bKE"/>
-                        <outlet property="tableView" destination="Khf-P1-ymz" id="scO-53-oJ4"/>
+                        <outlet property="malID" destination="MP2-pi-CMr" id="e4P-d0-ahe"/>
+                        <outlet property="malRating" destination="Ujc-GZ-Fsi" id="lsE-Nb-Ei6"/>
+                        <outlet property="savedSwitch" destination="DpQ-sR-xiA" id="1Qs-8z-std"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ljc-j0-QDA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -91,6 +118,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bP7-JQ-Xro" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="KSx-v5-vur"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="1dV-72-IR5">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -112,8 +140,8 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rx4-ip-Eko" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dr6-7D-I8Y">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="dr6-7D-I8Y">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -123,7 +151,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qwT-dG-HG5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="44.927536231884062" y="53.571428571428569"/>
+            <point key="canvasLocation" x="101" y="54"/>
         </scene>
     </scenes>
     <resources>

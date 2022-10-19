@@ -38,6 +38,7 @@ class ViewController: UIViewController {
         viewModel.viewModelDelegate = self
 
         viewModel.selectedSegmentedIndex = 0
+
     }
 
     func setContraints() {
@@ -57,5 +58,14 @@ extension ViewController: ViewModelDelegate {
         animeListViewController.animes = animes
         animeListViewController.tableView.reloadData()
     }
+
+    func goToDetail(with anime: AnimeData) {
+        guard let detailViewController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
+                fatalError("Unable to Instantiate Quotes View Controller")
+            }
+        detailViewController.detailViewModel = DetailViewModel(with: anime)
+        detailViewController.navigationController?.navigationItem.largeTitleDisplayMode = .always
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+        }
 
 }

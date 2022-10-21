@@ -20,18 +20,18 @@ class DetailViewController: UIViewController {
 
     private var anime: AnimeData?
 
-    @IBAction func saveSwitchAction(_ sender: Any) {
-
+    @IBAction func saveSwitchAction(_ sender: UISwitch) {
+        detailViewModel?.changeSwitch(to: sender.isOn)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        detailText.showsVerticalScrollIndicator = true
         navigationItem.title = detailViewModel?.model.title
-        animeImage = detailViewModel?.configureImageView(imageView: animeImage)
-        detailText = detailViewModel?.configureTextView(textView: detailText)
-        malRating = detailViewModel?.configureRating(labelView: malRating)
-        malID = detailViewModel?.configureMalID(labelView: malID)
-
+        detailViewModel?.configureImageView(imageView: animeImage)
+        detailViewModel?.configureTextView(textView: detailText)
+        detailViewModel?.configureRating(labelView: malRating)
+        detailViewModel?.configureMalID(labelView: malID)
     }
+
 }
-
-

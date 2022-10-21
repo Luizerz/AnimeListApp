@@ -10,7 +10,7 @@ import UIKit
 class AnimeListViewController: UIViewController {
 
     // Refatorar para os metodos do delegate e datasource usarem uma closure (futuro, talvez bridge)
-    var animes: [AnimeData] = []
+    var animes: [Anime] = []
 
     // closure
     var animeSeleted: (IndexPath) -> Void = { _ in }
@@ -39,7 +39,10 @@ extension AnimeListViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let anime = animes[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnimeListViewCell
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "cell",
+            for: indexPath
+        ) as? AnimeListViewCell else { return UITableViewCell() }
         cell.configure(with: anime)
         return cell
     }

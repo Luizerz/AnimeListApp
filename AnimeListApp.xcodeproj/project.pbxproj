@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4F0120552900281B0073EB8F /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F0120542900281B0073EB8F /* DetailViewModel.swift */; };
+		4F03EFBC2902CBA100B20E73 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F03EFBB2902CBA100B20E73 /* Anime.swift */; };
+		4F15865D29016C9F00B62917 /* AnimeEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F15865B29016C9F00B62917 /* AnimeEntity+CoreDataClass.swift */; };
+		4F15865E29016C9F00B62917 /* AnimeEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F15865C29016C9F00B62917 /* AnimeEntity+CoreDataProperties.swift */; };
 		4F33D03C28F983E3000F17A1 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D03B28F983E3000F17A1 /* API.swift */; };
 		4F33D03F28F98404000F17A1 /* AnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D03E28F98404000F17A1 /* AnimeModel.swift */; };
 		4F33D04228F98903000F17A1 /* ViewModelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F33D04128F98903000F17A1 /* ViewModelDelegate.swift */; };
@@ -28,6 +31,7 @@
 		4FD71CD328F5AA7A00A3350D /* AnimeListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD71CD228F5AA7A00A3350D /* AnimeListAppTests.swift */; };
 		4FD71CDD28F5AA7A00A3350D /* AnimeListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD71CDC28F5AA7A00A3350D /* AnimeListAppUITests.swift */; };
 		4FD71CDF28F5AA7A00A3350D /* AnimeListAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD71CDE28F5AA7A00A3350D /* AnimeListAppUITestsLaunchTests.swift */; };
+		4FE7993B290174BA00D311AF /* CoreDataMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE7993A290174BA00D311AF /* CoreDataMethods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,9 @@
 
 /* Begin PBXFileReference section */
 		4F0120542900281B0073EB8F /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		4F03EFBB2902CBA100B20E73 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		4F15865B29016C9F00B62917 /* AnimeEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimeEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4F15865C29016C9F00B62917 /* AnimeEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AnimeEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4F33D03B28F983E3000F17A1 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		4F33D03E28F98404000F17A1 /* AnimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeModel.swift; sourceTree = "<group>"; };
 		4F33D04128F98903000F17A1 /* ViewModelDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +79,7 @@
 		4FD71CD828F5AA7A00A3350D /* AnimeListAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimeListAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FD71CDC28F5AA7A00A3350D /* AnimeListAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListAppUITests.swift; sourceTree = "<group>"; };
 		4FD71CDE28F5AA7A00A3350D /* AnimeListAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		4FE7993A290174BA00D311AF /* CoreDataMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMethods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				4F33D03E28F98404000F17A1 /* AnimeModel.swift */,
+				4F03EFBB2902CBA100B20E73 /* Anime.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,6 +138,9 @@
 		4FA8DC8728F5BA1C00516E38 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				4F15865B29016C9F00B62917 /* AnimeEntity+CoreDataClass.swift */,
+				4F15865C29016C9F00B62917 /* AnimeEntity+CoreDataProperties.swift */,
+				4FE7993A290174BA00D311AF /* CoreDataMethods.swift */,
 				4F33D03B28F983E3000F17A1 /* API.swift */,
 			);
 			path = Service;
@@ -228,6 +240,7 @@
 				4FD71CB128F5AA7A00A3350D /* Sources */,
 				4FD71CB228F5AA7A00A3350D /* Frameworks */,
 				4FD71CB328F5AA7A00A3350D /* Resources */,
+				4F03EFBD2902CFFF00B20E73 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -351,17 +364,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4F03EFBD2902CFFF00B20E73 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4FD71CB128F5AA7A00A3350D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				4FA8DC8B28F5BA8F00516E38 /* ViewModel.swift in Sources */,
+				4F15865E29016C9F00B62917 /* AnimeEntity+CoreDataProperties.swift in Sources */,
 				4F33D04B28F9A01D000F17A1 /* AnimeListDelegate.swift in Sources */,
+				4F03EFBC2902CBA100B20E73 /* Anime.swift in Sources */,
 				4FD71CC328F5AA7A00A3350D /* AnimeListApp.xcdatamodeld in Sources */,
 				4FAD9D9428F9CF01008284B0 /* AnimeListViewCell.swift in Sources */,
 				4F33D03F28F98404000F17A1 /* AnimeModel.swift in Sources */,
 				4FD71CBD28F5AA7A00A3350D /* ViewController.swift in Sources */,
+				4FE7993B290174BA00D311AF /* CoreDataMethods.swift in Sources */,
 				4FD71CB928F5AA7A00A3350D /* AppDelegate.swift in Sources */,
 				4F33D04228F98903000F17A1 /* ViewModelDelegate.swift in Sources */,
 				4F33D03C28F983E3000F17A1 /* API.swift in Sources */,
@@ -369,6 +405,7 @@
 				4F6AA6AF28FD894C00D93DB2 /* DetailViewController.swift in Sources */,
 				4F33D04728F9928E000F17A1 /* AnimeListViewController.swift in Sources */,
 				4FD71CBB28F5AA7A00A3350D /* SceneDelegate.swift in Sources */,
+				4F15865D29016C9F00B62917 /* AnimeEntity+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

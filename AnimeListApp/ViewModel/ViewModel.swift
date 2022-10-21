@@ -13,13 +13,15 @@ class ViewModel {
     weak var viewModelDelegate: ViewModelDelegate?
 
     // Model
-    private var animes: [AnimeData] = []
+    private var animes: [Anime] = []
 
     var selectedSegmentedIndex: Int = 0 {
         didSet {
             // Começa evento de atualizar a view a partir do model
             Task {
-                await viewModelDelegate?.loadAnimes(with: selectedSegmentedIndex == 0 ? geralSelected() : myListSelected())
+                await viewModelDelegate?.loadAnimes(
+                    with: selectedSegmentedIndex == 0 ? geralSelected() : myListSelected()
+                )
             }
         }
     }
@@ -35,13 +37,18 @@ class ViewModel {
         // enviar evento pra controller fazer transicao de tela via delegate
     }
 
-    private func geralSelected() async -> [AnimeData] {
-        animes = await API.getAnimeModel(url: Router.getTopAnimes)?.data ?? []
+    private func geralSelected() async -> [Anime] {
+        let animeDatas = await API.getAnimeModel(url: Router.getTopAnimes)?.data ?? []
+        self.animes = animeDatas.map({ animeData in
+            return Anime(animeData)
+        })
+        // self.animes = animeDatas.map { Anime($0) }
         return animes
     }
 
-    private func myListSelected() async -> [AnimeData] {
-        animes = await API.getAnimeModel(url: Router.getAnimes)?.data ?? []
-        return animes
+    private func myListSelected() -> [Anime] {
+        // Busca do CoreData
+        // Transformar do CoreData em Anime
+        return []
     }
 }

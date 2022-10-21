@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Animes" representedClassName="Animes" syncable="YES" codeGenerationType="class">
+    <entity name="AnimeEntity" representedClassName="AnimeEntity" syncable="YES">
         <attribute name="animeImage" optional="YES" attributeType="String"/>
         <attribute name="detailText" optional="YES" attributeType="String"/>
-        <attribute name="malID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isOnMyList" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="malID" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="malRating" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Animes" positionX="-8105.7578125" positionY="-253.08203125" width="153.23828125" height="118"/>
+        <element name="AnimeEntity" positionX="-8105.7578125" positionY="-253.08203125" width="153.23828125" height="119"/>
     </elements>
 </model>

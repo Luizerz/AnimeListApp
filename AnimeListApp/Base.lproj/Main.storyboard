@@ -38,7 +38,7 @@
                     <navigationItem key="navigationItem" title="Animes" id="Qb2-AE-k0h"/>
                     <connections>
                         <outlet property="segmentedControl" destination="bkr-bA-NmL" id="Yad-95-02Q"/>
-                        <segue destination="bP7-JQ-Xro" kind="show" id="OJb-UU-ObL"/>
+                        <segue destination="bP7-JQ-Xro" kind="show" identifier="toDetail" id="OJb-UU-ObL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -56,18 +56,15 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vyS-Jr-w6d">
                                 <rect key="frame" x="15" y="195" width="144" height="200"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sy6-4G-PEM">
-                                <rect key="frame" x="174" y="195" width="233" height="191"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sy6-4G-PEM">
+                                <rect key="frame" x="174" y="195" width="233" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="191" id="DAW-u9-az3"/>
-                                </constraints>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DpQ-sR-xiA">
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="DpQ-sR-xiA">
                                 <rect key="frame" x="314" y="641" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
@@ -100,23 +97,32 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="I7r-lK-rTl">
+                                <rect key="frame" x="247" y="482.66666666666669" width="31" height="25.333333333333314"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YU9-DO-e2w"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="tintColor" systemColor="labelColor"/>
                         <constraints>
+                            <constraint firstItem="Sy6-4G-PEM" firstAttribute="bottom" secondItem="vyS-Jr-w6d" secondAttribute="bottom" id="1kH-CM-lVr"/>
                             <constraint firstItem="YU9-DO-e2w" firstAttribute="trailing" secondItem="MP2-pi-CMr" secondAttribute="trailing" constant="257" id="1xb-zH-ldd"/>
                             <constraint firstItem="MP2-pi-CMr" firstAttribute="leading" secondItem="YU9-DO-e2w" secondAttribute="leading" constant="27" id="3w8-6i-YMr"/>
                             <constraint firstItem="YU9-DO-e2w" firstAttribute="trailing" secondItem="Ujc-GZ-Fsi" secondAttribute="trailing" constant="28.5" id="9Ps-uD-EPE"/>
+                            <constraint firstItem="Ujc-GZ-Fsi" firstAttribute="leading" secondItem="I7r-lK-rTl" secondAttribute="trailing" constant="8" symbolic="YES" id="HsQ-1k-0yv"/>
                             <constraint firstItem="vyS-Jr-w6d" firstAttribute="top" secondItem="YU9-DO-e2w" secondAttribute="top" constant="55" id="NUq-Np-JXF"/>
-                            <constraint firstItem="Sy6-4G-PEM" firstAttribute="leading" secondItem="YU9-DO-e2w" secondAttribute="leading" constant="174" id="RIl-od-F5R"/>
-                            <constraint firstItem="Sy6-4G-PEM" firstAttribute="top" secondItem="YU9-DO-e2w" secondAttribute="top" constant="55" id="Ymr-p2-uwH"/>
+                            <constraint firstItem="eML-Zp-sW2" firstAttribute="top" secondItem="I7r-lK-rTl" secondAttribute="bottom" constant="2.3333333333333712" id="O3r-1y-N7Z"/>
+                            <constraint firstItem="Sy6-4G-PEM" firstAttribute="top" secondItem="vyS-Jr-w6d" secondAttribute="top" id="aln-zI-XIr"/>
+                            <constraint firstItem="I7r-lK-rTl" firstAttribute="top" secondItem="Sy6-4G-PEM" secondAttribute="bottom" constant="88" id="bkE-I3-URn"/>
                             <constraint firstItem="vyS-Jr-w6d" firstAttribute="leading" secondItem="YU9-DO-e2w" secondAttribute="leading" constant="15" id="cpM-wf-OJO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eML-Zp-sW2" secondAttribute="trailing" constant="6" id="deF-dp-ZSl"/>
                             <constraint firstItem="eML-Zp-sW2" firstAttribute="leading" secondItem="Fr8-Cp-GsM" secondAttribute="leadingMargin" constant="7" id="eq4-R0-6or"/>
                             <constraint firstItem="MP2-pi-CMr" firstAttribute="top" secondItem="vyS-Jr-w6d" secondAttribute="bottom" constant="90" id="hLo-RW-ibY"/>
                             <constraint firstItem="Ujc-GZ-Fsi" firstAttribute="top" secondItem="vyS-Jr-w6d" secondAttribute="bottom" constant="90" id="lxn-hA-43P"/>
+                            <constraint firstItem="I7r-lK-rTl" firstAttribute="leading" secondItem="MP2-pi-CMr" secondAttribute="trailing" constant="90" id="pUF-wo-o9b"/>
                             <constraint firstItem="YU9-DO-e2w" firstAttribute="trailing" secondItem="vyS-Jr-w6d" secondAttribute="trailing" constant="255" id="q3h-tm-oDY"/>
                             <constraint firstItem="YU9-DO-e2w" firstAttribute="trailing" secondItem="Sy6-4G-PEM" secondAttribute="trailing" constant="7" id="qcz-fW-dbG"/>
+                            <constraint firstItem="Sy6-4G-PEM" firstAttribute="leading" secondItem="vyS-Jr-w6d" secondAttribute="trailing" constant="15" id="uKF-NF-Moq"/>
                             <constraint firstItem="vyS-Jr-w6d" firstAttribute="height" secondItem="Fr8-Cp-GsM" secondAttribute="height" multiplier="0.223214" id="voe-jU-J0f"/>
                             <constraint firstItem="Ujc-GZ-Fsi" firstAttribute="leading" secondItem="YU9-DO-e2w" secondAttribute="leading" constant="286" id="wSv-UM-P2L"/>
                             <constraint firstItem="eML-Zp-sW2" firstAttribute="top" secondItem="MP2-pi-CMr" secondAttribute="bottom" constant="5" id="yPO-LP-UNe"/>
@@ -177,6 +183,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

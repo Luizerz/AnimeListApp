@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemOrange
+//        view.backgroundColor = .systemOrange
 
         animeListViewController.animeSeleted = { [weak self] indexPath in
             self?.viewModel.setAnimeSelected(at: indexPath)
@@ -33,7 +33,6 @@ class ViewController: UIViewController {
         addChild(animeListViewController)
         view.addSubview(animeListViewController.view)
         setContraints()
-        // Binding com delegate da ViewModel e da View (ViewController é View no MVVM)
         viewModel.viewModelDelegate = self
         viewModel.selectedSegmentedIndex = 0
 
@@ -42,7 +41,7 @@ class ViewController: UIViewController {
     func setContraints() {
         animeListViewController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            animeListViewController.view.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor,constant: 25),
+            animeListViewController.view.topAnchor.constraint(equalTo: segmentedControl.bottomAnchor, constant: 25),
             animeListViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25),
             animeListViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
             animeListViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10)
@@ -51,14 +50,27 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ViewModelDelegate {
-    func loadAnimes(with animes: [AnimeData]) async {
+    func loadAnimes(with animes: [Anime]) async {
         print("Atualiza Animes")
         animeListViewController.animes = animes
         animeListViewController.tableView.reloadData()
     }
 
-    func goToDetail(with anime: AnimeData) {
-        guard let detailViewController = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
+    func goToDetail(with anime: Anime) {
+
+        _ = CoreDataStack.shared.createAnimeEntity(animeData: anime.animeData())
+        do {
+            try CoreDataStack.shared.context.save()
+        } catch {
+            print("nao criou")
+        }
+
+        CoreDataStack.shared.printAllAnimeEntity()
+
+        guard let detailViewController = UIStoryboard(
+            name: "Main",
+            bundle: .main
+        ).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
                 fatalError("Unable to Instantiate Quotes View Controller")
             }
         detailViewController.detailViewModel = DetailViewModel(with: anime)

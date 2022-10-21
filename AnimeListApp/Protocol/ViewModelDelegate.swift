@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ViewModelDelegate: AnyObject {
-    func loadAnimes(with animes: [AnimeData]) async
-    func goToDetail(with anime: AnimeData)
+    func loadAnimes(with animes: [Anime]) async
+    func goToDetail(with anime: Anime)
 }

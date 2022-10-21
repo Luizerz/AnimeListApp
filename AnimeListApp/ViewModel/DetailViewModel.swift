@@ -9,35 +9,45 @@ import Foundation
 import UIKit
 
 class DetailViewModel {
-    var model: AnimeData
+    var model: Anime
 
-    init(with model: AnimeData){
+    init(with model: Anime) {
         self.model = model
     }
 
-    func configureImageView(imageView: UIImageView) -> UIImageView {
+    func configureImageView(imageView: UIImageView) {
         let imageURL: URL
-        imageURL = URL(string: model.images?.jpg?.image_url ?? "ERROR")!
+        imageURL = URL(string: model.images?.jpg?.imageUrl ?? "ERROR")!
         imageView.sd_setImage(with: imageURL)
-        return imageView
     }
 
-    func configureTextView(textView: UITextView) -> UITextView {
+    func configureTextView(textView: UITextView) {
         let textAnime = model.synopsis
         textView.text = textAnime
-        return textView
     }
 
-    func configureRating(labelView: UILabel) -> UILabel {
+    func configureRating(labelView: UILabel) {
         let rating = model.score
         labelView.text = "Rating: \(rating ?? 0)"
-        return labelView
     }
 
-    func configureMalID(labelView: UILabel) -> UILabel {
-        let textAnime = model.mal_id
+    func configureMalID(labelView: UILabel) {
+        let textAnime = model.id
         labelView.text = "Mal_ID: \(textAnime ?? 0)"
-        return labelView
+    }
+
+    func configureSwitch(switch: UISwitch) {
+        // busca no coredata
+        // se existir, seta o valor inicial pra true
+        // se nao, seta pra false
+    }
+
+    func changeSwitch(to isOn: Bool) {
+        if isOn {
+            // persiste no coredata
+        } else {
+            // remove do coredata
+        }
     }
 
 }

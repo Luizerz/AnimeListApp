@@ -20,9 +20,9 @@ class AnimeListViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    func configure(with anime: AnimeData) {
+    func configure(with anime: Anime) {
         label.text = anime.title
-        animeImage.sd_setImage(with: URL(string: anime.images?.jpg?.image_url ?? "")!)
+        animeImage.sd_setImage(with: URL(string: anime.images?.jpg?.imageUrl ?? "")!)
     }
-    
+
 }

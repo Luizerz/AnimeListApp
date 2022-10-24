@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewModel {
     var model: Anime
+    var delegate: DetailViewModelDelegate?
 
     init(with model: Anime) {
         self.model = model
@@ -36,17 +37,29 @@ class DetailViewModel {
         labelView.text = "Mal_ID: \(textAnime ?? 0)"
     }
 
-    func configureSwitch(switch: UISwitch) {
-        // busca no coredata
-        // se existir, seta o valor inicial pra true
-        // se nao, seta pra false
+    func configureSwitch(switchConfig: UISwitch) {
+        let isOn = model.isOnMyList
+        switchConfig.isOn = isOn
     }
 
     func changeSwitch(to isOn: Bool) {
         if isOn {
-            // persiste no coredata
+            model.isOnMyList.toggle()
+            _ = CoreDataStack.shared.createAnimeEntity(animeData: model.animeData())
+            do {
+                try CoreDataStack.shared.context.save()
+            } catch {
+                print("nao criou")
+            }
+            CoreDataStack.shared.printAllAnimeEntity()
         } else {
-            // remove do coredata
+            CoreDataStack.shared.deleteAnimeEntity(anime: model.animeData())
+            do {
+                try CoreDataStack.shared.context.save()
+            } catch {
+                print("nao deletou")
+            }
+            delegate?.reloadTableView()
         }
     }
 

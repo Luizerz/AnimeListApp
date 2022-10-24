@@ -35,15 +35,56 @@ class CoreDataStack {
         }
     }
 
-    func createAnimeEntity(animeData: AnimeData) -> AnimeEntity {
-        let newAnimeEntity = AnimeEntity(context: context)
-        newAnimeEntity.malID = Int64(animeData.malId!)
-        newAnimeEntity.malRating = animeData.score!
-        newAnimeEntity.animeImage = animeData.images?.jpg?.imageUrl
-        newAnimeEntity.detailText = animeData.synopsis
-        newAnimeEntity.title = animeData.title
-        newAnimeEntity.isOnMyList = true
-        return newAnimeEntity
+    private func checkAnimeEntity(with animeData: AnimeData) -> Bool {
+        let animes = fetchAnimeEntity()
+        var bool = true
+        for anime in animes {
+            if anime.malID == animeData.malId! {
+                bool = false
+                break
+            } else {
+                bool = true
+            }
+        }
+        return bool
+    }
+
+    func createAnimeEntity(animeData: AnimeData) -> AnimeEntity? {
+        let check = checkAnimeEntity(with: animeData)
+        if check {
+            let newAnimeEntity = AnimeEntity(context: context)
+            newAnimeEntity.malID = Int64(animeData.malId!)
+            newAnimeEntity.malRating = animeData.score!
+            newAnimeEntity.animeImage = animeData.images?.jpg?.imageUrl
+            newAnimeEntity.detailText = animeData.synopsis
+            newAnimeEntity.title = animeData.title
+            newAnimeEntity.isOnMyList = true
+            return newAnimeEntity
+        } else {
+            return nil
+        }
+    }
+
+    func animeOnListID(at animeData: AnimeData) -> NSManagedObjectID {
+        let animes = fetchAnimeEntity()
+        var id: NSManagedObjectID?
+        for anime in animes {
+            if anime.malID == animeData.malId! {
+                id = anime.objectID
+                print(id!)
+                break
+            } else {
+                id = nil
+            }
+        }
+        return id!
+    }
+
+    // revisar essa funcao de deletar e implementar
+    func deleteAnimeEntity(anime: AnimeData) {
+        let id = animeOnListID(at: anime)
+        let object = context.object(with: id)
+        context.delete(object)
     }
 
     func printAllAnimeEntity() {

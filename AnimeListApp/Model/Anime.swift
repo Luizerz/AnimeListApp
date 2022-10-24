@@ -14,7 +14,7 @@ struct Anime {
     let score: Float?
     let synopsis: String?
     let images: ImageFormat?
-    let isOnMyList: Bool
+    var isOnMyList: Bool
 
     init(_ animeData: AnimeData) {
         self.id = animeData.malId

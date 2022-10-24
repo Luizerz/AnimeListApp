@@ -57,25 +57,23 @@ extension ViewController: ViewModelDelegate {
     }
 
     func goToDetail(with anime: Anime) {
-
-        _ = CoreDataStack.shared.createAnimeEntity(animeData: anime.animeData())
-        do {
-            try CoreDataStack.shared.context.save()
-        } catch {
-            print("nao criou")
-        }
-
-        CoreDataStack.shared.printAllAnimeEntity()
-
         guard let detailViewController = UIStoryboard(
             name: "Main",
             bundle: .main
         ).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
                 fatalError("Unable to Instantiate Quotes View Controller")
             }
-        detailViewController.detailViewModel = DetailViewModel(with: anime)
+        let detail = DetailViewModel(with: anime)
+        detail.delegate = self
+        detailViewController.detailViewModel = detail
         detailViewController.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.pushViewController(detailViewController, animated: true)
         }
 
+}
+
+extension ViewController: DetailViewModelDelegate {
+    func reloadTableView() {
+        animeListViewController.tableView.reloadData()
+    }
 }

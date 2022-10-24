@@ -47,8 +47,10 @@ class ViewModel {
     }
 
     private func myListSelected() -> [Anime] {
-        // Busca do CoreData
-        // Transformar do CoreData em Anime
-        return []
+        let minhaLista: [AnimeEntity] = CoreDataStack.shared.fetchAnimeEntity()
+        self.animes = minhaLista.map({ minhaLista in
+            return Anime(minhaLista)
+        })
+        return animes
     }
 }

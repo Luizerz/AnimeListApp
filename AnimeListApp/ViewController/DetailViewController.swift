@@ -32,6 +32,6 @@ class DetailViewController: UIViewController {
         detailViewModel?.configureTextView(textView: detailText)
         detailViewModel?.configureRating(labelView: malRating)
         detailViewModel?.configureMalID(labelView: malID)
+        detailViewModel?.configureSwitch(switchConfig: savedSwitch)
     }
-
 }

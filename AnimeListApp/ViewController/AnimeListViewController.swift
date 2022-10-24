@@ -51,3 +51,5 @@ extension AnimeListViewController: UITableViewDelegate, UITableViewDataSource {
         animeSeleted(indexPath)
     }
 }
+
+

@@ -8,6 +8,6 @@
 import Foundation
 
 protocol ViewModelDelegate: AnyObject {
-
-    func printando()
+    func loadAnimes(with animes: [Anime]) async
+    func goToDetail(with anime: Anime)
 }

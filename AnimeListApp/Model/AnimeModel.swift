@@ -36,12 +36,17 @@ struct Items: Codable {
 }
 
 struct AnimeData: Codable {
-    let mal_id: Int?
+    let malId: Int?
     let title: String?
     let episodes: Int?
     let score: Float?
     let synopsis: String?
     let images: ImageFormat?
+
+    enum CodingKeys: String, CodingKey {
+        case malId = "mal_id"
+        case title, episodes, score, synopsis, images
+    }
 }
 
 struct ImageFormat: Codable {
@@ -49,10 +54,15 @@ struct ImageFormat: Codable {
 }
 
 struct ImageURL: Codable {
-    let large_image_url: String?
-    let small_image_url: String?
-    let image_url: String?
+    let largeImageUrl: String?
+    let smallImageUrl: String?
+    let imageUrl: String?
+
+    enum CodingKeys: String, CodingKey {
+        case largeImageUrl = "large_image_url"
+        case smallImageUrl = "small_image_url"
+        case imageUrl = "image_url"
+    }
 }
 
-
-let animeDataMock: [AnimeData] = [AnimeData(mal_id: nil, title: nil, episodes: nil, score: nil, synopsis: nil, images:  nil)]
+// let animeDataMock: [AnimeData] = [AnimeData(mal_id: nil, title: nil, episodes: nil, score: nil, synopsis: nil, images:  nil)]

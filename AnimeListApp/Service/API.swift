@@ -15,7 +15,7 @@ struct Router {
     static let getAnimes = URL(string: "\(rootURL)/anime")!
 }
 
-//API.getAnimeModel(url: Router.getAnimes)
+// API.getAnimeModel(url: Router.getAnimes)
 
 class API {
 
@@ -63,13 +63,12 @@ class API {
         return nil
     }
 
-    static func getTopAnimeCompletion(completion: @escaping (AnimeModel) -> ()){
+    static func getTopAnimeCompletion(completion: @escaping (AnimeModel) -> Void) {
         let url = URL(string: "https://api.jikan.moe/v4/top/anime?type=tv")!
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
 
-        let task = URLSession.shared.dataTask(with: urlRequest) {
-            (data, response, error) in
+        let task = URLSession.shared.dataTask(with: urlRequest) { (data, _, error) in
             guard let responseData = data else {
                 return
             }

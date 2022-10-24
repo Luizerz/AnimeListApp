@@ -22,6 +22,11 @@ class ViewController: UIViewController {
         viewModel.select(segmentedIndex: sender.selectedSegmentIndex)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        animeListViewController.tableView.reloadData()
+        viewModel.selectedSegmentedIndex = segmentedControl.selectedSegmentIndex
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        view.backgroundColor = .systemOrange

@@ -79,7 +79,6 @@ class API {
                 print(error)
             }
         }
-
         task.resume()
     }
 }

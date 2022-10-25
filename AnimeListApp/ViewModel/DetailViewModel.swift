@@ -34,7 +34,7 @@ class DetailViewModel {
 
     func configureMalID(labelView: UILabel) {
         let textAnime = model.id
-        labelView.text = "Mal_ID: \(textAnime ?? 0)"
+        labelView.text = "Mal ID: \(textAnime ?? 0)"
     }
 
     func configureSwitch(switchConfig: UISwitch) {

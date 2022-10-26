@@ -10,10 +10,10 @@ import UIKit
 class AnimeListViewController: UIViewController {
 
     // Refatorar para os metodos do delegate e datasource usarem uma closure (futuro, talvez bridge)
-    var animes: [Anime] = []
 
     // closure
     var animeSeleted: (IndexPath) -> Void = { _ in }
+    var animes: [Anime] = []
 
     lazy var tableView: UITableView = {
         let table = UITableView()
@@ -51,5 +51,3 @@ extension AnimeListViewController: UITableViewDelegate, UITableViewDataSource {
         animeSeleted(indexPath)
     }
 }
-
-

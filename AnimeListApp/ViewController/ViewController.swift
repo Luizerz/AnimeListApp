@@ -22,6 +22,11 @@ class ViewController: UIViewController {
         viewModel.select(segmentedIndex: sender.selectedSegmentIndex)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        animeListViewController.tableView.reloadData()
+        viewModel.selectedSegmentedIndex = segmentedControl.selectedSegmentIndex
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        view.backgroundColor = .systemOrange
@@ -34,8 +39,6 @@ class ViewController: UIViewController {
         view.addSubview(animeListViewController.view)
         setContraints()
         viewModel.viewModelDelegate = self
-        viewModel.selectedSegmentedIndex = 0
-
     }
 
     func setContraints() {
@@ -51,7 +54,7 @@ class ViewController: UIViewController {
 
 extension ViewController: ViewModelDelegate {
     func loadAnimes(with animes: [Anime]) async {
-        print("Atualiza Animes")
+        print("Atualiza Animes \(animes)")
         animeListViewController.animes = animes
         animeListViewController.tableView.reloadData()
     }

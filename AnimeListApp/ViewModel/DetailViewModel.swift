@@ -34,7 +34,7 @@ class DetailViewModel {
 
     func configureMalID(labelView: UILabel) {
         let textAnime = model.id
-        labelView.text = "Mal_ID: \(textAnime ?? 0)"
+        labelView.text = "Mal ID: \(textAnime ?? 0)"
     }
 
     func configureSwitch(switchConfig: UISwitch) {
@@ -46,6 +46,7 @@ class DetailViewModel {
         if isOn {
             model.isOnMyList.toggle()
             _ = CoreDataStack.shared.createAnimeEntity(animeData: model.animeData())
+            delegate?.reloadTableView()
             do {
                 try CoreDataStack.shared.context.save()
             } catch {
@@ -54,13 +55,14 @@ class DetailViewModel {
             CoreDataStack.shared.printAllAnimeEntity()
         } else {
             CoreDataStack.shared.deleteAnimeEntity(anime: model.animeData())
+            delegate?.reloadTableView()
             do {
                 try CoreDataStack.shared.context.save()
             } catch {
                 print("nao deletou")
             }
-            delegate?.reloadTableView()
         }
+
     }
 
 }

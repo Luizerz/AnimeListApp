@@ -201,9 +201,9 @@
 		4FD71CB728F5AA7A00A3350D /* AnimeListApp */ = {
 			isa = PBXGroup;
 			children = (
+				4FA8DC8928F5BA3100516E38 /* AppSceneDelegate */,
 				4F33D04028F988FB000F17A1 /* Protocol */,
 				4F33D03D28F983FB000F17A1 /* Model */,
-				4FA8DC8928F5BA3100516E38 /* AppSceneDelegate */,
 				4FA8DC8828F5BA2300516E38 /* ViewController */,
 				4FA8DC8628F5BA1700516E38 /* ViewModel */,
 				4FA8DC8728F5BA1C00516E38 /* Service */,

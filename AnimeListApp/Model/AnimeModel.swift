@@ -65,4 +65,5 @@ struct ImageURL: Codable {
     }
 }
 
-// let animeDataMock: [AnimeData] = [AnimeData(mal_id: nil, title: nil, episodes: nil, score: nil, synopsis: nil, images:  nil)]
+/* let animeDataMock: [AnimeData] = [AnimeData(mal_id: nil,
+ title: nil, episodes: nil, score: nil, synopsis: nil, images:  nil)]*/

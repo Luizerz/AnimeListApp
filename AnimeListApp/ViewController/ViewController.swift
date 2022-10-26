@@ -39,8 +39,6 @@ class ViewController: UIViewController {
         view.addSubview(animeListViewController.view)
         setContraints()
         viewModel.viewModelDelegate = self
-        viewModel.selectedSegmentedIndex = 0
-
     }
 
     func setContraints() {
@@ -56,7 +54,7 @@ class ViewController: UIViewController {
 
 extension ViewController: ViewModelDelegate {
     func loadAnimes(with animes: [Anime]) async {
-        print("Atualiza Animes")
+        print("Atualiza Animes \(animes)")
         animeListViewController.animes = animes
         animeListViewController.tableView.reloadData()
     }

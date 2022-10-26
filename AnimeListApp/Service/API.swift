@@ -17,20 +17,14 @@ struct Router {
 
 // API.getAnimeModel(url: Router.getAnimes)
 
-class API {
+class API: NSObject {
 
-    static func getAnimeModel(url: URL) async -> AnimeModel? {
+    static func getAnimeModel(url: URL) async throws -> AnimeModel? {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
-//        print(url)
-        do {
-            let (data, _) = try await URLSession.shared.data(for: urlRequest)
-            let animeDecoded = try JSONDecoder().decode(AnimeModel.self, from: data)
-            return animeDecoded
-        } catch {
-            print(error)
-        }
-        return nil
+        let (data, _) = try await URLSession.shared.data(for: urlRequest)
+        let animeDecoded = try JSONDecoder().decode(AnimeModel.self, from: data)
+        return animeDecoded
     }
 
     static func getAnimes(animeName: String) async -> AnimeModel? {

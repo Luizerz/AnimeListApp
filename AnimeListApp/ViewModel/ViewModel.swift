@@ -44,7 +44,15 @@ class ViewModel {
 
     func setAnimeSelected(at indexPath: IndexPath) {
         print(animes[indexPath.row].title ?? "")
+        let fetchFromCoreData = CoreDataStack.shared.fetchAnimeEntity()
+        for aux in 0..<fetchFromCoreData.count {
+            if self.animes[indexPath.row].title == fetchFromCoreData[aux].title {
+                print("On my list")
+                self.animes[indexPath.row].isOnMyList = true
+            }
+        }
         viewModelDelegate?.goToDetail(with: animes[indexPath.row])
+
         // enviar evento pra controller fazer transicao de tela via delegate
     }
 

@@ -54,7 +54,7 @@ class ViewController: UIViewController {
 
 extension ViewController: ViewModelDelegate {
     func loadAnimes(with animes: [Anime]) async {
-        print("Atualiza Animes \(animes)")
+//        print("Atualiza Animes \(animes)")
         animeListViewController.animes = animes
         animeListViewController.tableView.reloadData()
     }
@@ -72,7 +72,6 @@ extension ViewController: ViewModelDelegate {
         detailViewController.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.pushViewController(detailViewController, animated: true)
         }
-
 }
 
 extension ViewController: DetailViewModelDelegate {

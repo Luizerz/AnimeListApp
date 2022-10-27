@@ -52,7 +52,7 @@ class DetailViewModel {
             } catch {
                 print("nao criou")
             }
-            CoreDataStack.shared.printAllAnimeEntity()
+//            CoreDataStack.shared.printAllAnimeEntity()
         } else {
             CoreDataStack.shared.deleteAnimeEntity(anime: model.animeData())
             delegate?.reloadTableView()

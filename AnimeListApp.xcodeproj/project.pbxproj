@@ -32,6 +32,7 @@
 		4FD71CD328F5AA7A00A3350D /* AnimeListAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD71CD228F5AA7A00A3350D /* AnimeListAppTests.swift */; };
 		4FD71CDD28F5AA7A00A3350D /* AnimeListAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD71CDC28F5AA7A00A3350D /* AnimeListAppUITests.swift */; };
 		4FD71CDF28F5AA7A00A3350D /* AnimeListAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD71CDE28F5AA7A00A3350D /* AnimeListAppUITestsLaunchTests.swift */; };
+		4FE7469F290FEA630026D2D2 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4FE7469E290FEA630026D2D2 /* Lottie */; };
 		4FE7993B290174BA00D311AF /* CoreDataMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE7993A290174BA00D311AF /* CoreDataMethods.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +91,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F33D04528F98D7F000F17A1 /* SDWebImage in Frameworks */,
+				4FE7469F290FEA630026D2D2 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +254,7 @@
 			name = AnimeListApp;
 			packageProductDependencies = (
 				4F33D04428F98D7F000F17A1 /* SDWebImage */,
+				4FE7469E290FEA630026D2D2 /* Lottie */,
 			);
 			productName = AnimeListApp;
 			productReference = 4FD71CB528F5AA7A00A3350D /* AnimeListApp.app */;
@@ -327,6 +330,7 @@
 			mainGroup = 4FD71CAC28F5AA7A00A3350D;
 			packageReferences = (
 				4F33D04328F98D7F000F17A1 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				4FE7469D290FEA630026D2D2 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 4FD71CB628F5AA7A00A3350D /* Products */;
 			projectDirPath = "";
@@ -761,6 +765,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		4FE7469D290FEA630026D2D2 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -768,6 +780,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4F33D04328F98D7F000F17A1 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		4FE7469E290FEA630026D2D2 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FE7469D290FEA630026D2D2 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 

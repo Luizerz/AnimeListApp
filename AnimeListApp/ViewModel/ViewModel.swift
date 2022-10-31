@@ -14,12 +14,19 @@ class ViewModel {
 
     // Model
     private var animes: [Anime] = []
-
     var loadTask: Task<Void, Never>?
 
     var selectedSegmentedIndex: Int = 0 {
         didSet {
             // Começa evento de atualizar a view a partir do model
+            Task {
+                let animeAux: [Anime] = []
+                viewModelDelegate?.enableLoadingView()
+                await viewModelDelegate?.loadAnimes(with: animeAux)
+                DispatchQueue.main.async {
+                    // Ending Task
+                }
+            }
             loadTask?.cancel()
             loadTask = Task {
                 if let animes = try? await getAnimes(for: selectedSegmentedIndex) {
@@ -57,7 +64,6 @@ class ViewModel {
     }
 
     private func geralSelected() async throws -> [Anime] {
-        print("API")
         let animeDatas = try await API.getAnimeModel(url: Router.getTopAnimes)?.data ?? []
         self.animes = animeDatas.map({ animeData in
             return Anime(animeData)
@@ -74,6 +80,18 @@ class ViewModel {
             return Anime(minhaLista)
         })
         print("RETURN FROM COREDATA")
+        return animes
+    }
+
+    func searchAnime(animeName: String) async throws -> [Anime] {
+        let animeName = animeName.replacingOccurrences(of: " ", with: "-")
+        let url: URL = URL(string: "https://api.jikan.moe/v4/anime?q=\(animeName)&type=tv")!
+        let animeDatas = try await API.getAnimeModel(url: url)?.data ?? []
+        self.animes = animeDatas.map({ animeData in
+            return Anime(animeData)
+        })
+        // self.animes = animeDatas.map { Anime($0) }
+        print("RETURN FROM API")
         return animes
     }
 }

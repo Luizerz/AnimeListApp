@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Animes-->
+        <!--Rekki-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AnimeListApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -36,7 +36,7 @@
                             <constraint firstItem="bkr-bA-NmL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="yOl-WH-IYk"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Animes" id="Qb2-AE-k0h"/>
+                    <navigationItem key="navigationItem" title="Rekki" id="Qb2-AE-k0h"/>
                     <connections>
                         <outlet property="segmentedControl" destination="bkr-bA-NmL" id="Yad-95-02Q"/>
                         <segue destination="bP7-JQ-Xro" kind="show" identifier="toDetail" id="OJb-UU-ObL"/>

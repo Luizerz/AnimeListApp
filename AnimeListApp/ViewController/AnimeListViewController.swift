@@ -44,7 +44,7 @@ class AnimeListViewController: UIViewController {
         NSLayoutConstraint.activate([
             testeView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
             testeView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor),
-            testeView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/3),
+            testeView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/3)
         ])
     }
 

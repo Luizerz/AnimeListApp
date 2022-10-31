@@ -83,6 +83,14 @@ class ViewModel {
         return animes
     }
 
+    func getFromCDAnime() -> [Anime] {
+        let myList: [AnimeEntity] = CoreDataStack.shared.fetchAnimeEntity()
+        let animeList = myList.map({ myList in
+            return Anime(myList)
+        })
+        return animeList
+    }
+
     func searchAnime(animeName: String) async throws -> [Anime] {
         let animeName = animeName.replacingOccurrences(of: " ", with: "-")
         let url: URL = URL(string: "https://api.jikan.moe/v4/anime?q=\(animeName)&type=tv")!
@@ -93,5 +101,20 @@ class ViewModel {
         // self.animes = animeDatas.map { Anime($0) }
         print("RETURN FROM API")
         return animes
+    }
+    func searchAnimeFromCD(animeName: String) -> [Anime] {
+        let animeData = CoreDataStack.shared.searchFromCD(with: animeName) ?? []
+        print("RETURN FROM COREDATA")
+        self.animes = animeData
+        return animes
+    }
+    func refreshCD() -> [Anime] {
+        let animeData = CoreDataStack.shared.fetchAnimeEntity()
+        self.animes = animeData.map { animeData in
+            return Anime(animeData)
+        }
+        return animeData.map { animeData in
+            return Anime(animeData)
+        }
     }
 }

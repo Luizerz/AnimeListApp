@@ -35,6 +35,21 @@ class CoreDataStack {
         }
     }
 
+    func searchFromCD(with query: String) -> [Anime]? {
+        do {
+            let animeRequest = AnimeEntity.fetchRequest() as NSFetchRequest<AnimeEntity>
+            animeRequest.predicate = NSPredicate(format: "title CONTAINS[c] %@", "\(query)")
+            let fetch = try context.fetch(animeRequest)
+            let animeCD = fetch.map({ minhaLista in
+                return Anime(minhaLista)
+            })
+            return animeCD
+        } catch {
+            print("Error while fetching Animes.")
+            return []
+        }
+    }
+
     private func checkAnimeEntity(with animeData: AnimeData) -> Bool {
         let animes = fetchAnimeEntity()
         var bool = true

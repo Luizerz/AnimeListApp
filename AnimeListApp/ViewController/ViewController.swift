@@ -31,7 +31,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        view.backgroundColor = .systemOrange
 
         animeListViewController.animeSelected = { [weak self] indexPath in
             self?.viewModel.setAnimeSelected(at: indexPath)
@@ -97,38 +96,36 @@ extension ViewController: DetailViewModelDelegate {
     }
 }
 
-extension ViewController: UISearchResultsUpdating {
+extension ViewController: UISearchResultsUpdating, UISearchBarDelegate {
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("cancel")
+    }
+
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         var animeArray: [Anime] = []
 
         self.timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
-            if self?.viewModel.selectedSegmentedIndex == 0 {
-                if text == "" {
-                    self!.viewModel.select(segmentedIndex: 0)
+            if self?.viewModel.selectedSegmentedIndex == 0 && text != "" {
+                Task {
+                    animeArray = try await self!.viewModel.searchAnime(animeName: text)
+                    self?.animeListViewController.animes = animeArray
+                    self?.animeListViewController.tableView.reloadData()
+                }
+            } else if self?.viewModel.selectedSegmentedIndex == 1 {
+                if text != "" {
+                    animeArray = self?.viewModel.searchAnimeFromCD(animeName: text) ?? []
+                    self?.animeListViewController.animes = animeArray
+                    self?.animeListViewController.tableView.reloadData()
                 } else {
-                    Task {
-                        animeArray = try await self!.viewModel.searchAnime(animeName: text)
-                        print(animeArray)
-                        self?.animeListViewController.animes = animeArray
-                        self?.animeListViewController.tableView.reloadData()
-                    }
+                    animeArray = self?.viewModel.refreshCD() ?? []
+                    self?.animeListViewController.animes = animeArray
+                    self?.animeListViewController.tableView.reloadData()
                 }
             }
+
         }
-
-        print(text)
-
-//        let animeArray = animeListViewController.animes
-//        var filteredAnimes: [Anime] = []
-//
-//        for anime in animeArray {
-//            guard let animeTitle = anime.title else {return}
-//            if animeTitle.contains(text) {
-//                filteredAnimes.append(anime)
-//            }
-//        }
-//        print(filteredAnimes)
     }
 }

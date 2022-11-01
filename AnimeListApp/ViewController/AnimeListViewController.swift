@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import Lottie
 
 class AnimeListViewController: UIViewController {
 
     // Refatorar para os metodos do delegate e datasource usarem uma closure (futuro, talvez bridge)
 
     // closure
-    var animeSeleted: (IndexPath) -> Void = { _ in }
+    var animeSelected: (IndexPath) -> Void = { _ in }
     var animes: [Anime] = []
 
     lazy var tableView: UITableView = {
@@ -24,9 +25,27 @@ class AnimeListViewController: UIViewController {
         return table
     }()
 
+    let testeView: LottieAnimationView = {
+        let view = LottieAnimationView(asset: "loading")
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.loopMode = .loop
+        view.play()
+        return view
+    }()
+
     override func loadView() {
         self.view = tableView
         self.view.layer.cornerRadius = 25
+        tableView.addSubview(testeView)
+        setConstraints()
+    }
+
+    private func setConstraints() {
+        NSLayoutConstraint.activate([
+            testeView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            testeView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor),
+            testeView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/3)
+        ])
     }
 
 }
@@ -48,6 +67,6 @@ extension AnimeListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        animeSeleted(indexPath)
+        animeSelected(indexPath)
     }
 }

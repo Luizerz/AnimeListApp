@@ -14,12 +14,19 @@ class ViewModel {
 
     // Model
     private var animes: [Anime] = []
-
     var loadTask: Task<Void, Never>?
 
     var selectedSegmentedIndex: Int = 0 {
         didSet {
             // Começa evento de atualizar a view a partir do model
+            Task {
+                let animeAux: [Anime] = []
+                viewModelDelegate?.enableLoadingView()
+                await viewModelDelegate?.loadAnimes(with: animeAux)
+                DispatchQueue.main.async {
+                    // Ending Task
+                }
+            }
             loadTask?.cancel()
             loadTask = Task {
                 if let animes = try? await getAnimes(for: selectedSegmentedIndex) {
@@ -40,6 +47,8 @@ class ViewModel {
 
     func select(segmentedIndex: Int) {
         self.selectedSegmentedIndex = segmentedIndex // fim do evento que atualiza model
+        let feedBack = UISelectionFeedbackGenerator()
+        feedBack.selectionChanged()
     }
 
     func setAnimeSelected(at indexPath: IndexPath) {
@@ -57,7 +66,6 @@ class ViewModel {
     }
 
     private func geralSelected() async throws -> [Anime] {
-        print("API")
         let animeDatas = try await API.getAnimeModel(url: Router.getTopAnimes)?.data ?? []
         self.animes = animeDatas.map({ animeData in
             return Anime(animeData)
@@ -75,5 +83,40 @@ class ViewModel {
         })
         print("RETURN FROM COREDATA")
         return animes
+    }
+
+    func getFromCDAnime() -> [Anime] {
+        let myList: [AnimeEntity] = CoreDataStack.shared.fetchAnimeEntity()
+        let animeList = myList.map({ myList in
+            return Anime(myList)
+        })
+        return animeList
+    }
+
+    func searchAnime(animeName: String) async throws -> [Anime] {
+        let animeName = animeName.replacingOccurrences(of: " ", with: "-")
+        let url: URL = URL(string: "https://api.jikan.moe/v4/anime?q=\(animeName)&type=tv")!
+        let animeDatas = try await API.getAnimeModel(url: url)?.data ?? []
+        self.animes = animeDatas.map({ animeData in
+            return Anime(animeData)
+        })
+        // self.animes = animeDatas.map { Anime($0) }
+        print("RETURN FROM API")
+        return animes
+    }
+    func searchAnimeFromCD(animeName: String) -> [Anime] {
+        let animeData = CoreDataStack.shared.searchFromCD(with: animeName) ?? []
+        print("RETURN FROM COREDATA")
+        self.animes = animeData
+        return animes
+    }
+    func refreshCD() -> [Anime] {
+        let animeData = CoreDataStack.shared.fetchAnimeEntity()
+        self.animes = animeData.map { animeData in
+            return Anime(animeData)
+        }
+        return animeData.map { animeData in
+            return Anime(animeData)
+        }
     }
 }

@@ -36,6 +36,10 @@ class DetailViewModel {
         let textAnime = model.id
         labelView.text = "Mal ID: \(textAnime ?? 0)"
     }
+    func configureEpisodes(labelView: UILabel) {
+        let episodesLabel = model.episodes
+        labelView.text = "Episodes: \(episodesLabel ?? 0)"
+    }
 
     func configureSwitch(switchConfig: UISwitch) {
         let isOn = model.isOnMyList

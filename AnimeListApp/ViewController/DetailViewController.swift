@@ -17,6 +17,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var malID: UILabel!
     @IBOutlet weak var malRating: UILabel!
     @IBOutlet weak var savedSwitch: UISwitch!
+    @IBOutlet weak var episodeLabel: UILabel!
 
     private var anime: AnimeData?
 
@@ -33,5 +34,6 @@ class DetailViewController: UIViewController {
         detailViewModel?.configureRating(labelView: malRating)
         detailViewModel?.configureMalID(labelView: malID)
         detailViewModel?.configureSwitch(switchConfig: savedSwitch)
+        detailViewModel?.configureEpisodes(labelView: episodeLabel)
     }
 }

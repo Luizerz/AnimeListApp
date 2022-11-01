@@ -74,10 +74,13 @@ class CoreDataStack {
             newAnimeEntity.detailText = animeData.synopsis
             newAnimeEntity.title = animeData.title
             newAnimeEntity.isOnMyList = true
+            newAnimeEntity.episodes = Int64(animeData.episodes ?? 0)
+            printAllAnimeEntity()
             return newAnimeEntity
         } else {
             return nil
         }
+
     }
 
     func animeOnListID(at animeData: AnimeData) -> NSManagedObjectID {
@@ -106,7 +109,7 @@ class CoreDataStack {
         let animes = fetchAnimeEntity()
         if !animes.isEmpty {
             for anime in animes {
-                print("title: \(anime.title ?? "error"), malID: \(anime.malID), isOnMyList: \(anime.isOnMyList)")
+                print("title: \(anime.title ?? "error"), malID: \(anime.malID), isOnMyList: \(anime.isOnMyList), Episodes: \(anime.episodes)")
             }
         } else {
             print("Something wrong, your coredata are empty")

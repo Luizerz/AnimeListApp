@@ -29,7 +29,7 @@ struct Anime {
     init(_ animeEntity: AnimeEntity) {
         self.id = Int(animeEntity.malID)
         self.title = animeEntity.title
-        self.episodes = nil // animeEntity.episodes
+        self.episodes = Int(animeEntity.episodes) // animeEntity.episodes
         self.score = animeEntity.malRating
         self.synopsis = animeEntity.detailText
         self.images = ImageFormat(

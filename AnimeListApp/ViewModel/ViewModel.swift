@@ -47,6 +47,8 @@ class ViewModel {
 
     func select(segmentedIndex: Int) {
         self.selectedSegmentedIndex = segmentedIndex // fim do evento que atualiza model
+        let feedBack = UISelectionFeedbackGenerator()
+        feedBack.selectionChanged()
     }
 
     func setAnimeSelected(at indexPath: IndexPath) {

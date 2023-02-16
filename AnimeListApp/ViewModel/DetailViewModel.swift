@@ -45,6 +45,10 @@ class DetailViewModel {
         let isOn = model.isOnMyList
         switchConfig.isOn = isOn
     }
+    func configureTitleLabel(titleLabel: UILabel) {
+        let modelTitle = model.title
+        titleLabel.text = modelTitle
+    }
 
     func changeSwitch(to isOn: Bool) {
         if isOn {

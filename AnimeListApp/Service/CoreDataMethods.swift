@@ -35,6 +35,21 @@ class CoreDataStack {
         }
     }
 
+    func searchFromCD(with query: String) -> [Anime]? {
+        do {
+            let animeRequest = AnimeEntity.fetchRequest() as NSFetchRequest<AnimeEntity>
+            animeRequest.predicate = NSPredicate(format: "title CONTAINS[c] %@", "\(query)")
+            let fetch = try context.fetch(animeRequest)
+            let animeCD = fetch.map({ minhaLista in
+                return Anime(minhaLista)
+            })
+            return animeCD
+        } catch {
+            print("Error while fetching Animes.")
+            return []
+        }
+    }
+
     private func checkAnimeEntity(with animeData: AnimeData) -> Bool {
         let animes = fetchAnimeEntity()
         var bool = true
@@ -59,10 +74,13 @@ class CoreDataStack {
             newAnimeEntity.detailText = animeData.synopsis
             newAnimeEntity.title = animeData.title
             newAnimeEntity.isOnMyList = true
+            newAnimeEntity.episodes = Int64(animeData.episodes ?? 0)
+            printAllAnimeEntity()
             return newAnimeEntity
         } else {
             return nil
         }
+
     }
 
     func animeOnListID(at animeData: AnimeData) -> NSManagedObjectID {
@@ -91,7 +109,7 @@ class CoreDataStack {
         let animes = fetchAnimeEntity()
         if !animes.isEmpty {
             for anime in animes {
-                print("title: \(anime.title ?? "error"), malID: \(anime.malID), isOnMyList: \(anime.isOnMyList)")
+                print("title: \(anime.title ?? "error"), malID: \(anime.malID), isOnMyList: \(anime.isOnMyList), Episodes: \(anime.episodes)")
             }
         } else {
             print("Something wrong, your coredata are empty")

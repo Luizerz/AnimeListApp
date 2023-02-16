@@ -12,11 +12,13 @@ class DetailViewController: UIViewController {
 
     var detailViewModel: DetailViewModel?
 
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var animeImage: UIImageView!
     @IBOutlet weak var detailText: UITextView!
     @IBOutlet weak var malID: UILabel!
     @IBOutlet weak var malRating: UILabel!
     @IBOutlet weak var savedSwitch: UISwitch!
+    @IBOutlet weak var episodeLabel: UILabel!
 
     private var anime: AnimeData?
 
@@ -26,12 +28,13 @@ class DetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailText.showsVerticalScrollIndicator = true
-        navigationItem.title = detailViewModel?.model.title
+//        navigationItem.title = detailViewModel?.model.title
         detailViewModel?.configureImageView(imageView: animeImage)
         detailViewModel?.configureTextView(textView: detailText)
         detailViewModel?.configureRating(labelView: malRating)
         detailViewModel?.configureMalID(labelView: malID)
         detailViewModel?.configureSwitch(switchConfig: savedSwitch)
+        detailViewModel?.configureEpisodes(labelView: episodeLabel)
+        detailViewModel?.configureTitleLabel(titleLabel: titleLabel)
     }
 }

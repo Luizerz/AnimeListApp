@@ -21,6 +21,7 @@ extension AnimeEntity {
     @NSManaged public var malRating: Float
     @NSManaged public var title: String?
     @NSManaged public var isOnMyList: Bool
+    @NSManaged public var episodes: Int64
 
 }
 

@@ -36,10 +36,18 @@ class DetailViewModel {
         let textAnime = model.id
         labelView.text = "Mal ID: \(textAnime ?? 0)"
     }
+    func configureEpisodes(labelView: UILabel) {
+        let episodesLabel = model.episodes
+        labelView.text = "Episodes: \(episodesLabel ?? 0)"
+    }
 
     func configureSwitch(switchConfig: UISwitch) {
         let isOn = model.isOnMyList
         switchConfig.isOn = isOn
+    }
+    func configureTitleLabel(titleLabel: UILabel) {
+        let modelTitle = model.title
+        titleLabel.text = modelTitle
     }
 
     func changeSwitch(to isOn: Bool) {
@@ -52,7 +60,7 @@ class DetailViewModel {
             } catch {
                 print("nao criou")
             }
-            CoreDataStack.shared.printAllAnimeEntity()
+//            CoreDataStack.shared.printAllAnimeEntity()
         } else {
             CoreDataStack.shared.deleteAnimeEntity(anime: model.animeData())
             delegate?.reloadTableView()

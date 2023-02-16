@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     // View
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     private lazy var animeListViewController = AnimeListViewController()
+    private lazy var searchBar = UISearchController(searchResultsController: nil)
+    var timer: Timer?
 
     // Actions
     @IBAction func segmentedAction(_ sender: UISegmentedControl) {
@@ -29,9 +31,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        view.backgroundColor = .systemOrange
 
-        animeListViewController.animeSeleted = { [weak self] indexPath in
+        animeListViewController.animeSelected = { [weak self] indexPath in
             self?.viewModel.setAnimeSelected(at: indexPath)
         }
 
@@ -39,6 +40,12 @@ class ViewController: UIViewController {
         view.addSubview(animeListViewController.view)
         setContraints()
         viewModel.viewModelDelegate = self
+
+        // searchBar
+        searchBar.searchResultsUpdater = self
+        searchBar.obscuresBackgroundDuringPresentation = false
+        searchBar.searchBar.placeholder = "Procure um Anime"
+        navigationItem.searchController = searchBar
     }
 
     func setContraints() {
@@ -53,8 +60,17 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: ViewModelDelegate {
+
+    func enableLoadingView() {
+        DispatchQueue.main.async {
+            self.animeListViewController.testeView.isHidden = false
+        }
+    }
+
     func loadAnimes(with animes: [Anime]) async {
-        print("Atualiza Animes \(animes)")
+        if !animes.isEmpty {
+            animeListViewController.testeView.isHidden = true
+        }
         animeListViewController.animes = animes
         animeListViewController.tableView.reloadData()
     }
@@ -64,19 +80,52 @@ extension ViewController: ViewModelDelegate {
             name: "Main",
             bundle: .main
         ).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
-                fatalError("Unable to Instantiate Quotes View Controller")
-            }
+            fatalError("Unable to Instantiate Quotes View Controller")
+        }
         let detail = DetailViewModel(with: anime)
         detail.delegate = self
         detailViewController.detailViewModel = detail
         detailViewController.navigationController?.navigationItem.largeTitleDisplayMode = .always
         self.navigationController?.pushViewController(detailViewController, animated: true)
-        }
-
+    }
 }
 
 extension ViewController: DetailViewModelDelegate {
     func reloadTableView() {
         animeListViewController.tableView.reloadData()
+    }
+}
+
+extension ViewController: UISearchResultsUpdating, UISearchBarDelegate {
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("cancel")
+    }
+
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        var animeArray: [Anime] = []
+
+        self.timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { [weak self] _ in
+            if self?.viewModel.selectedSegmentedIndex == 0 && text != "" {
+                Task {
+                    animeArray = try await self!.viewModel.searchAnime(animeName: text)
+                    self?.animeListViewController.animes = animeArray
+                    self?.animeListViewController.tableView.reloadData()
+                }
+            } else if self?.viewModel.selectedSegmentedIndex == 1 {
+                if text != "" {
+                    animeArray = self?.viewModel.searchAnimeFromCD(animeName: text) ?? []
+                    self?.animeListViewController.animes = animeArray
+                    self?.animeListViewController.tableView.reloadData()
+                } else {
+                    animeArray = self?.viewModel.refreshCD() ?? []
+                    self?.animeListViewController.animes = animeArray
+                    self?.animeListViewController.tableView.reloadData()
+                }
+            }
+
+        }
     }
 }

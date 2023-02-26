@@ -119,4 +119,11 @@ class ViewModel {
             return Anime(animeData)
         }
     }
+
+    func swipeToRight() {
+        self.selectedSegmentedIndex = 1
+    }
+    func swipeToLeft() {
+        self.selectedSegmentedIndex = 0
+    }
 }

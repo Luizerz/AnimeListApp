@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 import SDWebImage
 
 class ViewController: UIViewController {
@@ -32,6 +33,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // MARK: swipe gesture
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(gesture:)))
+        rightSwipe.direction = .right
+        animeListViewController.view.addGestureRecognizer(rightSwipe)
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(gesture:)))
+        leftSwipe.direction = .left
+        animeListViewController.view.addGestureRecognizer(leftSwipe)
+
+        //
+
         animeListViewController.animeSelected = { [weak self] indexPath in
             self?.viewModel.setAnimeSelected(at: indexPath)
         }
@@ -47,7 +58,16 @@ class ViewController: UIViewController {
         searchBar.searchBar.placeholder = "Procure um Anime"
         navigationItem.searchController = searchBar
     }
-
+    @objc func swipeHandler(gesture: UISwipeGestureRecognizer) {
+        if gesture.direction == .right {
+            viewModel.swipeToRight()
+            segmentedControl.selectedSegmentIndex = 1
+        }
+        if gesture.direction == .left {
+            viewModel.swipeToLeft()
+            segmentedControl.selectedSegmentIndex = 0
+        }
+    }
     func setContraints() {
         animeListViewController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

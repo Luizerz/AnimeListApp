@@ -131,6 +131,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		4F70137129A07BA3004A3F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4FD71CBE28F5AA7A00A3350D /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		4FA8DC8628F5BA1700516E38 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -203,13 +211,13 @@
 		4FD71CB728F5AA7A00A3350D /* AnimeListApp */ = {
 			isa = PBXGroup;
 			children = (
+				4F70137129A07BA3004A3F9D /* View */,
 				4FA8DC8928F5BA3100516E38 /* AppSceneDelegate */,
 				4F33D04028F988FB000F17A1 /* Protocol */,
 				4F33D03D28F983FB000F17A1 /* Model */,
 				4FA8DC8828F5BA2300516E38 /* ViewController */,
 				4FA8DC8628F5BA1700516E38 /* ViewModel */,
 				4FA8DC8728F5BA1C00516E38 /* Service */,
-				4FD71CBE28F5AA7A00A3350D /* Main.storyboard */,
 				4FD71CC428F5AA7A00A3350D /* Assets.xcassets */,
 				4FD71CC628F5AA7A00A3350D /* LaunchScreen.storyboard */,
 				4FD71CC928F5AA7A00A3350D /* Info.plist */,
@@ -594,11 +602,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimeListApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rekki;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -606,9 +616,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = progamming.AnimeListApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -623,11 +636,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AnimeListApp/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Rekki;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -635,9 +650,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = progamming.AnimeListApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -82,6 +82,9 @@ class ViewModel {
             return Anime(minhaLista)
         })
         print("RETURN FROM COREDATA")
+        if minhaLista.isEmpty {
+            viewModelDelegate?.disableLoadingView()
+        }
         return animes
     }
 

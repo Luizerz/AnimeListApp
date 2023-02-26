@@ -25,7 +25,7 @@ class AnimeListViewController: UIViewController {
         return table
     }()
 
-    let testeView: LottieAnimationView = {
+    let loadingView: LottieAnimationView = {
         let view = LottieAnimationView(asset: "loading")
         view.translatesAutoresizingMaskIntoConstraints = false
         view.loopMode = .loop
@@ -36,15 +36,15 @@ class AnimeListViewController: UIViewController {
     override func loadView() {
         self.view = tableView
         self.view.layer.cornerRadius = 25
-        tableView.addSubview(testeView)
+        tableView.addSubview(loadingView)
         setConstraints()
     }
 
     private func setConstraints() {
         NSLayoutConstraint.activate([
-            testeView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
-            testeView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor),
-            testeView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/3)
+            loadingView.centerXAnchor.constraint(equalTo: tableView.centerXAnchor),
+            loadingView.centerYAnchor.constraint(equalTo: tableView.centerYAnchor),
+            loadingView.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.height/3)
         ])
     }
 

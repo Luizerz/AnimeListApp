@@ -11,4 +11,5 @@ protocol ViewModelDelegate: AnyObject {
     func loadAnimes(with animes: [Anime]) async
     func goToDetail(with anime: Anime)
     func enableLoadingView()
+    func disableLoadingView()
 }

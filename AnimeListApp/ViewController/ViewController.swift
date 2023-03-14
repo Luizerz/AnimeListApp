@@ -49,12 +49,18 @@ class ViewController: UIViewController {
         // MARK: swipe gesture
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(gesture:)))
         rightSwipe.direction = .right
+        let rightSwipeLabel = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(gesture:)))
+        rightSwipeLabel.direction = .right
+        let rightSwipeAnimation = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(gesture:)))
+        rightSwipeAnimation.direction = .right
+        emptyListView.addGestureRecognizer(rightSwipeAnimation)
+        emptyAnimeListLabel.addGestureRecognizer(rightSwipeLabel)
         animeListViewController.view.addGestureRecognizer(rightSwipe)
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(gesture:)))
         leftSwipe.direction = .left
         animeListViewController.view.addGestureRecognizer(leftSwipe)
+        // 
 
-        //
         animeListViewController.animeSelected = { [weak self] indexPath in
             self?.viewModel.setAnimeSelected(at: indexPath)
         }
@@ -74,11 +80,11 @@ class ViewController: UIViewController {
     @objc func swipeHandler(gesture: UISwipeGestureRecognizer) {
         if gesture.direction == .right {
             viewModel.swipeToRight()
-            segmentedControl.selectedSegmentIndex = 1
+            segmentedControl.selectedSegmentIndex = 0
         }
         if gesture.direction == .left {
             viewModel.swipeToLeft()
-            segmentedControl.selectedSegmentIndex = 0
+            segmentedControl.selectedSegmentIndex = 1
         }
     }
     func setContraints() {

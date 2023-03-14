@@ -75,8 +75,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating: 10.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujc-GZ-Fsi">
-                                <rect key="frame" x="284" y="448.33333333333331" width="99.333333333333314" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avaliação: 10.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ujc-GZ-Fsi">
+                                <rect key="frame" x="261" y="448.33333333333331" width="122.33333333333331" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -89,13 +89,13 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mal ID: 1234567" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MP2-pi-CMr">
-                                <rect key="frame" x="20" y="448.33333333333331" width="394" height="21"/>
+                                <rect key="frame" x="20" y="448.33333333333331" width="194" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="I7r-lK-rTl">
-                                <rect key="frame" x="247" y="446" width="22" height="20"/>
+                                <rect key="frame" x="229" y="446" width="22" height="20"/>
                                 <color key="tintColor" systemColor="systemYellowColor"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Episodios" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OP0-LJ-geE">
@@ -120,12 +120,12 @@
                             <constraint firstItem="OP0-LJ-geE" firstAttribute="leading" secondItem="YU9-DO-e2w" secondAttribute="leading" constant="53" id="2iy-Ts-TpI"/>
                             <constraint firstItem="YU9-DO-e2w" firstAttribute="trailing" secondItem="DpQ-sR-xiA" secondAttribute="trailing" constant="51" id="2ln-Cw-OkU"/>
                             <constraint firstItem="IBz-Go-Yix" firstAttribute="top" secondItem="eML-Zp-sW2" secondAttribute="bottom" constant="100" id="DtM-nb-FAB"/>
-                            <constraint firstItem="Ujc-GZ-Fsi" firstAttribute="leading" secondItem="I7r-lK-rTl" secondAttribute="trailing" constant="15" id="HpO-GM-kuD"/>
+                            <constraint firstItem="Ujc-GZ-Fsi" firstAttribute="leading" secondItem="I7r-lK-rTl" secondAttribute="trailing" constant="10" id="HpO-GM-kuD"/>
                             <constraint firstItem="OP0-LJ-geE" firstAttribute="top" secondItem="IBz-Go-Yix" secondAttribute="bottom" constant="64" id="Hxu-uJ-55E"/>
                             <constraint firstItem="eML-Zp-sW2" firstAttribute="top" secondItem="I7r-lK-rTl" secondAttribute="bottom" constant="2.3333333333333712" id="O3r-1y-N7Z"/>
                             <constraint firstItem="Ujc-GZ-Fsi" firstAttribute="top" secondItem="Sy6-4G-PEM" secondAttribute="bottom" constant="90" id="OFM-hq-T4q"/>
                             <constraint firstItem="MP2-pi-CMr" firstAttribute="leading" secondItem="YU9-DO-e2w" secondAttribute="leading" constant="20" id="Oe3-6R-VJU"/>
-                            <constraint firstItem="YU9-DO-e2w" firstAttribute="trailing" secondItem="MP2-pi-CMr" secondAttribute="trailing" id="QEe-tt-zwx"/>
+                            <constraint firstItem="YU9-DO-e2w" firstAttribute="trailing" secondItem="MP2-pi-CMr" secondAttribute="trailing" constant="200" id="QEe-tt-zwx"/>
                             <constraint firstItem="YU9-DO-e2w" firstAttribute="trailing" secondItem="OP0-LJ-geE" secondAttribute="trailing" constant="150" id="Rsf-N2-66M"/>
                             <constraint firstItem="Sy6-4G-PEM" firstAttribute="top" secondItem="vyS-Jr-w6d" secondAttribute="top" id="aln-zI-XIr"/>
                             <constraint firstItem="I7r-lK-rTl" firstAttribute="top" secondItem="Sy6-4G-PEM" secondAttribute="bottom" constant="88" id="bkE-I3-URn"/>

@@ -29,7 +29,7 @@ class DetailViewModel {
 
     func configureRating(labelView: UILabel) {
         let rating = model.score
-        labelView.text = "Rating: \(rating ?? 0)"
+        labelView.text = "Avaliação: \(rating ?? 0)"
     }
 
     func configureMalID(labelView: UILabel) {
@@ -38,7 +38,7 @@ class DetailViewModel {
     }
     func configureEpisodes(labelView: UILabel) {
         let episodesLabel = model.episodes
-        labelView.text = "Episodes: \(episodesLabel ?? 0)"
+        labelView.text = "Episódios: \(episodesLabel ?? 0)"
     }
 
     func configureSwitch(switchConfig: UISwitch) {

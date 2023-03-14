@@ -61,7 +61,6 @@ class ViewModel {
             }
         }
         viewModelDelegate?.goToDetail(with: animes[indexPath.row])
-
         // enviar evento pra controller fazer transicao de tela via delegate
     }
 
@@ -124,9 +123,9 @@ class ViewModel {
     }
 
     func swipeToRight() {
-        self.selectedSegmentedIndex = 1
+        self.selectedSegmentedIndex = 0
     }
     func swipeToLeft() {
-        self.selectedSegmentedIndex = 0
+        self.selectedSegmentedIndex = 1
     }
 }
